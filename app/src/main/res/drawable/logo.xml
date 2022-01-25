@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/background"/>
+    <item
+        android:drawable="@drawable/logocam"
+        android:gravity="center"
+        android:width="244.6dp"
+        android:height="244.6dp"
+        android:top = "56dp"/>
+    <item
+        android:drawable="@drawable/logo_ws"
+        android:gravity="center"
+        android:bottom="268.6dp"
+        android:width="282.28dp"
+        android:height="30.86dp"/>
+</layer-list>

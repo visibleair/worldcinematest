@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SignIn"
+        android:background="@color/background"
+        android:layout_gravity="center_horizontal"
+        android:paddingHorizontal="18.3dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="67.4dp"
+            android:background="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/edit_view_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/edit_view_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="35dp">
+
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50.3dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/roundeddarkbutton"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/grey"
+                android:paddingStart="18dp"
+                android:textColorHint="@color/grey"
+                android:fontFamily="@font/roboto_regular"/>
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:textColor="@color/grey"
+                android:layout_width="match_parent"
+                android:layout_height="50.3dp"
+                android:background="@drawable/roundeddarkbutton"
+                android:hint="Пароль"
+                android:inputType="textPassword"
+                android:paddingStart="18dp"
+                android:textColorHint="@color/grey"
+                android:fontFamily="@font/roboto_regular"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/edit_view_list2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="123.4dp"
+            android:layout_marginBottom="25.1dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_view_list"
+            tools:layout_editor_absoluteX="40dp">
+
+
+            <LinearLayout
+                android:id="@+id/button_sign_in"
+                android:layout_width="match_parent"
+                android:layout_height="50.3dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/roundedpurplebutton"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Войти"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/button_register"
+                android:layout_width="match_parent"
+                android:layout_height="50.3dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/roundeddarkbutton"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Регистрация"
+                    android:textStyle="bold"
+                    android:textColor="@color/purple" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
