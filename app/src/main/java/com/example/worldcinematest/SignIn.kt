@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
+
+import com.example.worldcinematest.Common.Global.Companion.token1
 import com.example.worldcinematest.data.Login
 import com.example.worldcinematest.databinding.ActivitySignInBinding
 import com.google.gson.Gson
@@ -36,7 +38,16 @@ class SignIn : AppCompatActivity() {
         }
         binding.buttonSignIn.setOnClickListener{
             var email = binding.editTextEmail.text.toString()
+            var emailvalidation = Regex("[a-z0-9]@[a-z0-9]+\\.[a-z]{1,3}$").find(email)
+            //Toast.makeText(this, "$emailvalidation", Toast.LENGTH_SHORT).show()
+            if (emailvalidation != null){
+                //binding.editTextEmail.setError("Email некорректен")
+            }
+            else{
+                binding.editTextEmail.setError("Email некорректен")
+            }
             var password = binding.editTextPassword.text.toString()
+            var token111 = "Bearer 278203"
             formBody = FormBody.Builder()
                 .add("email", email)
                 .add("password", password)
@@ -90,10 +101,10 @@ class SignIn : AppCompatActivity() {
 //        }
 
     }
-    private lateinit var token: Login
+    private lateinit var token : Login
     fun gsonBuilder(str: String){
         token = gson.fromJson(str, Login::class.java)
-        //Log.i("tag", "gsonBuilder: ${token.token}")
+        token1 = token.token
         Toast.makeText(this, "token: ${token.token}", Toast.LENGTH_SHORT).show()
     }
 

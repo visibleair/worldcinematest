@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="64dp"
     android:gravity="center_vertical"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
-
 
     <ImageView
         android:id="@+id/back_arrow"
         android:layout_width="18.2dp"
         android:layout_height="18.2dp"
         android:layout_marginStart="23dp"
-        android:layout_marginVertical="23dp"
         android:src="@drawable/ic_arrow_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +22,11 @@
 
     <TextView
         android:id="@+id/title_bar"
+        android:layout_weight="1"
         android:layout_width="285dp"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:layout_marginStart="41dp"
-        android:maxWidth="20dp"
         android:text="Обсуждения"
         android:textSize="22.8sp"
         android:textStyle="bold"
@@ -41,7 +39,6 @@
         android:id="@+id/plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="23dp"
         android:layout_marginEnd="23dp"
         android:src="@drawable/ic_plus"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,5 +46,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -45,17 +45,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Воланд Иванов"
                     android:textColor="@color/white"
+                    android:text="Your name"
                     android:textSize="27.4sp"
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/email"
+                    android:text="youremail@gmail.com"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="voland.ivanov@gmail.com"
                     android:textColor="@color/grey" />
             </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Toast
 import com.example.worldcinematest.data.Login
@@ -12,6 +13,8 @@ import com.example.worldcinematest.databinding.ActivitySignUpBinding
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
+import android.text.TextUtils
+import android.util.Patterns
 
 
 class SignUp : AppCompatActivity() {
@@ -38,6 +41,24 @@ class SignUp : AppCompatActivity() {
             var password = binding.editTextPassword.text.toString()
             var firstName = binding.editTextName.text.toString()
             var lastName = binding.editTextSurname.text.toString()
+            var emailvalidation = Regex("[a-z0-9._%-]@[a-z0-9]+\\.[a-z]{1,3}$").find(email)
+            if(binding.editTextPassword.text == null || binding.editTextPassword2.text == null || binding.editTextEmail.text == null || binding.editTextName.text == null || binding.editTextSurname.text == null){
+                Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                if (emailvalidation == null){
+                    binding.editTextEmail.setError("Некорректный Email")
+
+                }
+                if(binding.editTextPassword.text != binding.editTextPassword2.text){
+                    binding.editTextPassword.setError("Пароли не совпадают")
+                    binding.editTextPassword2.setError("Пароли не совпадают")
+                }
+            }
+
+
+
+
             formBody = FormBody.Builder()
                 .add("email", email)
                 .add("password", password)
@@ -52,7 +73,6 @@ class SignUp : AppCompatActivity() {
 
             gson = Gson()
 
-
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     Log.i("tag", "onFailure: ")
@@ -62,7 +82,7 @@ class SignUp : AppCompatActivity() {
                     //Log.i("tag", "onResponse: ${response.body!!.string()}")
                     if(response.code == 201){
                         runOnUiThread{
-                            Toast.makeText(this@SignUp, "Успешная регистрация", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@SignUp, "Успешная регистрация}", Toast.LENGTH_SHORT).show()
                         }
                     }
                     else{
@@ -70,9 +90,6 @@ class SignUp : AppCompatActivity() {
                             Toast.makeText(this@SignUp, "Неуспешная регистрация", Toast.LENGTH_SHORT).show()
                         }
                     }
-
-
-
                 }
             })
 
@@ -88,11 +105,15 @@ class SignUp : AppCompatActivity() {
 //        }
 
         }
-//    private lateinit var token: Register
-//    fun gsonBuilder(str: String){
-//        token = gson.fromJson(str, Register::class.java)
-//        Log.i("tag", "gsonBuilder: ${token.token1}")
-//    }
+
+
+
 
     }
+    private lateinit var token: Register
+    fun gsonBuilder(str: String){
+        token = gson.fromJson(str, Register::class.java)
+        Log.i("tag", "gsonBuilder: ${token.token1}")
+    }
+
 }
